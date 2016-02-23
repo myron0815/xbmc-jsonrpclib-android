@@ -62,14 +62,14 @@ public class Introspect {
 	public final static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
 	// date: git show -s --format="%ci" 9ed3e58
-	public final static String XBMC_VERSION_HASH = "9ed3e58";
-	public final static String XBMC_VERSION_DATE = "2013-12-12 13:47:49 -0800";
-	public final static String XBMC_VERSION_BRANCH = "Branch.FRODO";
+	public final static String XBMC_VERSION_HASH = "a5f3a99";
+	public final static String XBMC_VERSION_DATE = "2016-02-20 13:47:49 -0800";
+	public final static String XBMC_VERSION_BRANCH = "Branch.JARVIS";
 	public final static String XBMC_VERSION_TYPE = "Type.RELEASE";
 
 	private static Result RESULT;
 
-	private final static String SCHEMA = "introspect.json";
+    private final static String SCHEMA = "jarvis.json";
 
 	private final static String PACKAGE = "org.xbmc.android.jsonrpc.api";
 	private final static String MODEL_PACKAGE = PACKAGE + ".model";
@@ -89,7 +89,10 @@ public class Introspect {
 		OBJECT_MAPPER.registerModule(module);
 		IGNORED_METHODS.add("JSONRPC.Introspect"); // don't care. also, there is no return type definition.
 		IGNORED_METHODS.add("XBMC.GetInfoBooleans"); // temporarily until fixed
-		IGNORED_METHODS.add("XBMC.GetInfoLabels");   // temporarily until fixed
+        IGNORED_METHODS.add("XBMC.GetInfoLabels"); // temporarily until fixed
+        IGNORED_METHODS.add("JSONRPC.Version"); // temporarily until fixed
+
+        IGNORED_METHODS.add("Settings.GetSettings");
 	}
 
 	public static void generate(File generatorFolder, File outputFolder) {

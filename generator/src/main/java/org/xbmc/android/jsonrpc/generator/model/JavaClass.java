@@ -740,7 +740,7 @@ public class JavaClass {
 	 */
 	public void setGlobal() {
 		if (unresolved) {
-			throw new IllegalStateException("Unresolved.");
+            throw new IllegalStateException("Unresolved " + this);
 		}
 		isInner = false;
 	}
@@ -1080,7 +1080,7 @@ public class JavaClass {
 		// members
 		for (JavaAttribute m : members) {
 			if (!m.isEnum()) {
-				imports.addAll(m.getType().getImports());
+				// imports.addAll(m.getType().getImports()); // FIXME: recursive Stackoverflow
 			}
 		}
 		// inner types

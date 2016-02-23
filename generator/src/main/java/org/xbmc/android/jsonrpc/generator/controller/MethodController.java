@@ -93,7 +93,7 @@ public class MethodController {
 	 * @return Class object
 	 */
 	public JavaMethod getClass(Namespace namespace, String methodName) {
-
+        System.out.println("MethodName: " + methodName);
 		final JavaMethod klass = new JavaMethod(namespace, name, apiType);
 
 		final List<JavaConstructor> constructors = new ArrayList<JavaConstructor>();
@@ -279,7 +279,7 @@ public class MethodController {
 					// first case described above: data is wrapped into a meta object.
 					if (nonMetaProps == 1) {
 						final Property prop = type.getProperties().get(potentialResultPropName);
-						if (!prop.isRef() && !prop.isNative() && !prop.isArray()) {
+                        if (!prop.isRef() && !prop.isNative() && !prop.isArray()) {
 							throw new IllegalStateException("Return type is expected to be either reference, native or array");
 						}
 

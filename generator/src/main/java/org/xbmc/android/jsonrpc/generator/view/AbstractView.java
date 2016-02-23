@@ -262,7 +262,9 @@ public abstract class AbstractView {
 	 * @return Java class type
 	 */
 	protected String getInnerType(String type, String outerType) {
-
+        if (type == null) {
+            System.out.println("Type NULL: " + outerType);
+        }
 		String name = getPlural(type);
 		final String suffix = outerType.equalsIgnoreCase(type) ? "Value" : "";
 
